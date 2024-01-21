@@ -1,0 +1,465 @@
+body{
+    /* background-color: yellow; */
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header{
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    box-shadow: 2px 3px 10px black;
+}
+
+input:focus{
+    outline: none;
+}
+
+select:focus{
+    outline: none;
+}
+
+#userLogo{
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    font-size: 40px;
+}
+
+#hint{
+    border: 3px dashed rgb(190, 69, 227);
+    background-color: rgb(228, 192, 239);
+    padding: 3px;
+}
+
+#main{
+    /* background-color: green; */
+    width: 80%;
+    margin: 100px auto;
+    height: max-content;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(10,110px) ;
+    grid-gap: 10px;
+    
+}
+
+#div1{
+    /* background-color: red; */
+    grid-row: 1/4;
+    grid-column: 1/11;
+    padding: 15px;
+    font-size: 20px;
+
+}
+
+#balanceBox{
+    border-collapse: collapse;
+}
+
+#myButtons{
+    /* background-color: purple; */
+    text-align: center;
+    margin: 10px auto;
+
+}
+
+#impbtn{
+    list-style-type: none;   
+}
+
+#impbtn li{
+    display: inline;
+    
+}
+
+#depositWindow{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    margin:auto;
+    display: none;
+    padding-top: 40px ;
+}
+
+#depositTable td{
+    padding: 8px;
+    border: none;
+}
+
+#depositForm{
+    background-color: white;
+    width: max-content;
+    text-align: center;
+    margin: 40px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 15px black;
+    
+}
+
+#notice{
+    font-size: 14px;
+    text-align: justify;
+    background-color: rgb(180, 243, 193);
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 3px dotted rgb(7, 114, 7);
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#closeDeposit{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 30px;
+    color: rgb(207, 209, 211);
+}
+
+#buttons{
+    margin: 10px auto;
+}
+
+#depositForm{
+    margin: 10px auto;
+}
+
+#separator{
+    background-color: black;
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#transferWindow{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    margin:auto;
+    display: none;
+}
+
+#transferTable td{
+    padding: 8px;
+    border: none;
+}
+
+#transferForm{
+    background-color: white;
+    width: max-content;
+    text-align: center;
+    margin: 40px auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 15px black;
+    
+}
+
+#closeTransfer{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 30px;
+    color: rgb(207, 209, 211);
+}
+
+button{
+    border-radius: 10px;
+    border-width: 0px;
+    padding: 10px 15px;
+    background-color: rgb(190, 69, 227);
+    color: white;
+    font-family:'Roboto Slab','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+}
+
+#div2{
+    /* background-color: orange; */
+    grid-row: 4/8;
+    grid-column: 1/11;
+    padding: 15px;
+    text-align: center;
+
+}
+
+#infoTable{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 10px auto;
+}
+
+#infoTable td,tr{
+    border: 1px solid black;
+    padding: 8px;
+    width: max-content;
+    
+}
+
+#history{
+    margin-top: 30px ;
+}
+
+#historyWindow{
+    position: fixed;
+    padding-top: 100px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    margin: auto;
+    display: none;
+}
+
+#history_info{
+    padding: 30px;
+    width: max-content;
+    margin: auto;
+    box-shadow: 3px 3px 15px black;
+    background-color: white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: relative;
+    /* background-color: red; */
+    height: 80%;
+    overflow: auto;
+    
+}
+
+#historyTable{
+    /* background-color: yellow; */
+    /* margin: auto; */
+    border-collapse: collapse;
+   
+}
+
+#historyTable tr,td{
+    border: 1px solid black;
+    padding: 4px;
+    /* font-size: 2vw; */
+}
+
+#closeHistory{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+} 
+
+
+
+#div3{
+    /* background-color: pink; */
+    grid-row: 8/10;
+    grid-column: 1/11;
+    padding: 15px;
+    text-align: center;
+
+}
+
+#supportExtended{
+    display: none;
+}
+
+#support{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 1px auto;
+}
+
+#supportExtended{
+    width: 60%;
+    margin: 1px auto;
+}
+
+#plusSupport{
+    background-color: rgb(190, 69, 227);
+    color: white;
+    padding: 3px;
+}
+#minusSupport{
+    display: none;
+    background-color: rgb(190, 69, 227);
+    color: white;
+    padding: 3px;
+}
+
+#faqExtended{
+    display: none;
+}
+
+#faq{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 1px auto;
+    border-top: 1px solid black;
+}
+
+#faqExtended{
+    width: 60%;
+    margin: 1px auto;
+}
+
+#myfaq{
+    text-align: left;
+    border-collapse: collapse;
+}
+
+#plusFaq{
+    background-color: rgb(190, 69, 227);
+    color: white;
+    padding: 3px;
+}
+#minusFaq{
+    display: none;
+    background-color: rgb(190, 69, 227);
+    color: white;
+    padding: 3px;
+}
+
+#signOut{
+    margin-top: 20px;
+}
+
+footer{
+    z-index: 4;
+    background-color: black;
+    color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#flist{
+    list-style-type: none;
+    text-align: center;
+    
+}
+
+#flist li{
+    display: inline;
+    padding: 15px;
+
+}
+
+/* #div4{
+    background-color: purple;
+    grid-row: 7/9;
+    grid-column: 1/11;
+    padding: 15px;
+
+} */
+
+/*
+#div5{
+    background-color: black;
+    grid-row: 1/3;
+    grid-column: 1/11;
+    padding: 15px;
+
+}
+
+#div6{
+    background-color: aqua;
+    grid-row: 1/3;
+    grid-column: 1/11;
+    padding: 15px;
+
+} */
+
+@media (max-width:600px){
+    #logo{
+        width: 200px;
+        height: 60px;
+    }
+
+    #userLogo{
+        /* width: 100px; */
+        display: none;
+    }
+
+    #div1{
+        font-size: 4vw;
+    }
+
+    #myButtons{
+        margin-top: 20px;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 4vw;
+    }
+
+    button{
+        font-size: 4vw;
+    }
+
+    #impbtn li{
+        display: block;
+        margin-top: 15px ;
+    }
+
+    #div1{
+        grid-row: 1/5;
+    }
+
+    #div2{
+        grid-row:5/8 ;
+    }
+
+    #infoTable{
+        font-size: 4vw;
+    }
+
+    #infoTable td,tr{
+        padding: 3px;
+    }
+
+    #historyTable{
+        font-size: 2.3vw;
+    }
+
+    #history_info{
+        height: max-content;
+    }
+
+    #div3{
+        grid-row: 8/11;
+    }
+
+    #userID{
+        font-size: 2.5vw;
+    }
+
+    #myfaq{
+        font-size: 2.3vw;
+    }
+
+    #flist li{
+    display: inline;
+    padding: 7px;
+    font-size: 2.7vw;
+
+
+}
+}

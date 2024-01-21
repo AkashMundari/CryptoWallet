@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="final.css">
+
+    <script src="https://kit.fontawesome.com/13e80f9169.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+       <div id="head">
+        <img id="logo" src="logo(black-small).png" />
+        <i class="fa-regular fa-circle-user" id="userLogo"></i>
+    
+       </div>    
+    
+    </header>
+
+    <div id="separator"></div>
+<!--Deposit-->
+    <div id="depositWindow">
+      <div id="closeDeposit" onclick="closeDepositWindow()"><i class="fa-solid fa-xmark"></i></div>
+      
+          <form id="depositForm">
+
+              <table id="depositTable">
+                  <tr>
+                      <td>CRYPTO:</td>
+                      <td>
+                          <select id="crypto" name="crypto">
+                              <option value="BTC">BTC</option>
+                              <option value="ETH">ETH</option>
+                              <option value="BNB">BNB</option>
+                              <option value="SOL">SOL</option>
+                              <option value="XRP">XRP</option>
+                              <option value="ADA">ADA</option>
+                          </select>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>QUANTITY:</td>
+                      <td>
+                          <input type="number" id="quantity" name="quantity" placeholder="QTY" min="0" step='0.0001'>
+                      </td>
+                  </tr>
+              </table>
+
+              <div id="buttons">
+                  <a href="#"><button id="deposit" type="submit">Deposit</button></a>
+
+              </div>
+
+              <div id="notice">
+                  <p>
+                      Note: You can add multiple coins to your<br>
+                      wallet, by simply clicking on 'Deposit'<br>
+                      again, once you have successfully <br>
+                      deposited a cryptocurrency. <br>
+                      <br>
+                      Click on 'Done' once you have finished adding<br>
+                      cryptocurrencies to your wallet.<br>
+                      <br>
+                      **Minimum deposit quantity for any<br>
+                      cryptocurrency is '0.0001' units.**
+                  </p>
+              </div>
+          </form>
+      </div>
+<!--Deposit Ends-->
+
+<!--Transfer-->
+
+<div id="transferWindow">
+    <div id="closeTransfer" onclick="closeTransferWindow()"><i class="fa-solid fa-xmark"></i></div>
+  <form id="transferForm">
+    <table id="transferTable">
+      <tr>
+        <td>CRYPTO:</td>
+        <td>
+          <select id="transferCrypto" name="transferCrypto">
+            <option value="BTC">BTC</option>
+            <option value="ETH">ETH</option>
+            <option value="BNB">BNB</option>
+            <option value="SOL">SOL</option>
+            <option value="XRP">XRP</option>
+            <option value="ADA">ADA</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>QUANTITY:</td>
+        <td>
+          <input
+            type="number"
+            id="transferQuantity"
+            name="transferQuantity"
+            placeholder="Quantity"
+            min="0"
+            step="0.0001"
+          />
+          <br />
+        </td>
+      </tr>
+      <tr>
+        <td>ID:</td>
+        <td>
+          <input
+            type="text"
+            id="receiverID"
+            name="receiverID"
+            placeholder="ID"
+          />
+        </td>
+      </tr>
+    </table>
+    <div id="buttons">
+        <a href="#"><button id="transfer" type="submit">Transfer</button></a>
+      </div>
+  </form>
+  
+</div>
+
+<!--Transfer Ends-->
+
+<!--History-->
+<div id="historyWindow">
+  <div id="closeHistory">
+    <i class="fa-solid fa-xmark"></i>
+  </div>
+  <div id="history_info">
+    <p>Your Transaction History</p>
+     <table id="historyTable">
+      <tr>
+        <td>Date</td>
+        <td>Crypto</td>
+        <td>Quantity</td>
+        <td>Status</td>
+        <td>Sent To/Received From</td>
+      </tr>
+      <tbody id="historyData"></tbody>
+    </table>
+  </div>
+</div>
+
+
+<!--History Ends -->
+
+    <div id="main">
+
+        <div id="div1">
+            <h2 id="welcome"></h2>
+            <table id="balanceBox">
+                <tr>
+                  <td id="bal">BALANCE:</td>
+                  <td id="totBalance"></td>
+                </tr>
+                <tr>
+                  <td id="ID">ID:</td>
+                  <td id="userID">123456</td>
+                </tr>
+              </table>
+
+              <div id="myButtons">
+                <ul id="impbtn">
+                  <li><a href="#"><button id="deposit" onclick="openDepositWindow()" type="button">Deposit</button></a>&nbsp; &nbsp;</li>
+                  <li><a href="#"><button id="transfer" onclick="openTransferWindow()" type="button">Transfer</button></a>&nbsp; &nbsp;</li>
+                  <li><button onclick="updateBalance()">Refresh Balance</button></li>
+              </ul>
+              </div>
+              <p id="hint">**Reload Page To See Changes Due to Deposit or Transfer Feature.**</p>
+
+              
+
+        </div>
+        <div id="div2">
+          <table id="infoTable">
+            <tr>
+              <td>CRYPTO</td>
+              <td>Qty.</td>
+              <td>Price($)</td>
+              <td>Balance($)</td>
+            </tr>
+            <tr>
+              <td>BTC</td>
+              <td id="btcQty"></td>
+              <td id="btcPrice"></td>
+              <td id="btcBalance"></td>
+            </tr>
+            <tr>
+              <td>ETH</td>
+              <td id="ethQty"></td>
+              <td id="ethPrice"></td>
+              <td id="ethBalance"></td>
+            </tr>
+            <tr>
+              <td>SOL</td>
+              <td id="solQty"></td>
+              <td id="solPrice"></td>
+              <td id="solBalance"></td>
+            </tr>
+            <tr>
+              <td>XRP</td>
+              <td id="xrpQty"></td>
+              <td id="xrpPrice"></td>
+              <td id="xrpBalance"></td>
+            </tr>
+            <tr>
+              <td>BNB</td>
+              <td id="bnbQty"></td>
+              <td id="bnbPrice"></td>
+              <td id="bnbBalance"></td>
+            </tr>
+            <tr>
+              <td>ADA</td>
+              <td id="adaQty"></td>
+              <td id="adaPrice"></td>
+              <td id="adaBalance"></td>
+            </tr>
+          </table>
+
+          <a href="#" ><button id="history" type="button">Transaction History</button></a>
+
+        </div>
+        <div id="div3">
+          <div id="support">
+            <div id="supportL">
+              SUPPORT
+            </div>
+            <div id="supportR">
+              <i class="fa-solid fa-plus" id="plusSupport" onclick="supportExt()"></i>
+              <i class="fa-solid fa-minus" id="minusSupport" onclick="supportCom()"></i>
+            </div>
+          
+          </div>
+          <div id="supportExtended">
+            <p>Reach Us At cryptakofficial001@gmail.com</p>
+          </div>
+          <div id="faq">
+            <div id="faqL">
+              FAQ'S
+            </div>
+            <div id="faqR">
+              <i class="fa-solid fa-plus" id="plusFaq" onclick="faqExt()"></i>
+              <i class="fa-solid fa-minus" id="minusFaq" onclick="faqCom()"></i>
+            </div>
+          </div>
+          <div id="faqExtended">
+            <table id="myfaq">
+                <tr>
+                    <td>Q.</td>
+                    <td>How To Deposit My Cryoto?</td>
+                </tr>
+                <tr>
+                    <td>👉</td>
+                    <td>Simply click on 'Deposit' Button and after that a deposit window will appear,
+                     then select the crypto you want to deposit and then click on 'Deposit' 
+                        the selected crypto will be deposited into your account.</p></td>
+                </tr>
+
+                <tr>
+                    <td>Q.</td>
+                    <td>How To Transfer Crypto?</td>
+
+                </tr>
+
+                <tr>
+                    <td>👉</td>
+                    <td>Click on 'Transfer' Button select the cryptocurrency, the enter the quantity after that enter the receiver's ID
+                        and then click on 'Transfer'.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Q.</td>
+                    <td>How To See My Transaction History?</td>
+                </tr>
+
+                <tr>
+                    <td>👉</td>
+                    <td>Click on Transaction History.</td>
+                </tr>
+            </table>
+
+            
+          </div>
+          <a href="#" ><button id="signOut" type="button">Sign Out</button></a>
+        </div>
+
+        
+
+        <!-- This div contains signout button -->
+        </div>
+        <!-- <div id="div4"></div>
+        <div id="div5"></div>
+        <div id="div6"></div> -->
+        <!-- <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, similique quis? Eveniet soluta, obcaecati suscipit dolorem totam assumenda at perspiciatis accusamus, facere sit quas delectus magni eius libero reiciendis doloremque!
+            Facilis delectus suscipit porro deleniti numquam odio tenetur nostrum corrupti. Facilis aperiam maxime dolore distinctio obcaecati debitis asperiores, suscipit, tenetur, labore modi iure eligendi dolor similique consequuntur minima deserunt! Hic.
+            In nemo deleniti libero ea sint repellendus commodi laboriosam mollitia nisi voluptatum. Debitis, cumque iusto harum, expedita minima illo vero sequi excepturi, eius sunt molestiae saepe explicabo ipsum incidunt optio.
+        </p> -->
+    </div>
+
+    <footer>
+      <ul id="flist">
+          <li>HOME</li>
+          <li>DEPOSIT</li>
+          <li>TRANSFER</li>
+          <li>SIGN OUT</li>
+      </ul>
+    </footer>
+
+
+    <script src="final(database).js" type="module"></script>
+
+
+    <script src="final.js"></script>
+    
+</body>
+</html>
